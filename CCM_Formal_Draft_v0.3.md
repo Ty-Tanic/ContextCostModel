@@ -9,12 +9,18 @@
 | CMC | Context Maintenance Cost |
 | CSC | Context Switching Cost |
 | ACC(a,p) | Artifact Context Cost of artifact *a* for person *p* |
-| C(T) | Context required for task *T* |
+| CR(T) | Context Requirement of task *T* |
 | O(T1,T2) | Context overlap between two tasks |
+| O(A) | Reusable context overlap among artifacts in set *A* |
 | IC(T) | Integration context cost between artifacts required for task *T* |
 | E(T,p) | Externalized context available to person *p* for task *T* |
+| E_AI(T,p) | AI-provided externalized context available to person *p* for task *T* |
 | V_AI(T,p) | AI verification and supervision cost for task *T* by person *p* |
 | AI | AI assistance factor |
+| α | Fraction of CRC reduced by AI assistance |
+| β | Context switching penalty coefficient |
+| γ | Baseline context maintenance effort coefficient |
+| δ | Overload cost coefficient |
 
 ------------------------------------------------------------------------
 
@@ -49,13 +55,13 @@ $$
 A task is directly manageable with available externalized context only if
 
 $$
-C(T) \le HCC + E(T,p)
+CR(T) \le HCC + E(T,p)
 $$
 
 Otherwise
 
 $$
-C(T) > HCC + E(T,p)
+CR(T) > HCC + E(T,p)
 $$
 
 implies that the required context exceeds the person's simultaneous
@@ -91,7 +97,7 @@ increase in human working memory.
 ## Context Switching
 
 $$
-CSC(T_1,T_2)=\beta\left(C(T_1)+C(T_2)-O(T_1,T_2)\right)
+CSC(T_1,T_2)=\beta\left(CR(T_1)+CR(T_2)-O(T_1,T_2)\right)
 $$
 
 where:
@@ -104,7 +110,7 @@ where:
 ## Context Maintenance
 
 $$
-CMC=\gamma\cdot C(T)+\delta\cdot \max(0,C(T)-HCC-E(T,p))
+CMC=\gamma\cdot CR(T)+\delta\cdot \max(0,CR(T)-HCC-E(T,p))
 $$
 
 where $\gamma$ models baseline cognitive maintenance effort and $\delta$

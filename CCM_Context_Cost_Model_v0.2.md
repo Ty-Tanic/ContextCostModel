@@ -31,6 +31,15 @@ Examples include:
 
 ------------------------------------------------------------------------
 
+## Context Requirement (CR)
+
+The amount of context required by a task.
+
+CR is task-dependent and may include information distributed across
+multiple artifacts, people, tools, and prior decisions.
+
+------------------------------------------------------------------------
+
 ## Context Reconstruction Cost (CRC)
 
 The effort required to reconstruct a context after it has been lost or
@@ -97,15 +106,27 @@ ACC is person-dependent.
 
 ------------------------------------------------------------------------
 
-# Core Observations
+## Integration Cost (IC)
 
-1.  Architecture primarily manages context.
-2.  Modularization reduces required context.
-3.  Documentation reduces CRC.
+The additional effort required to combine individually understood
+artifacts into one coherent mental model.
+
+IC explains why understanding each artifact separately may still be
+insufficient to perform a task correctly.
+
+------------------------------------------------------------------------
+
+# Working Hypotheses and Observations
+
+1.  Architecture can be interpreted as context management.
+2.  Modularization may reduce required context when boundaries align with
+    task-relevant concepts.
+3.  Documentation can reduce CRC when it is accurate, discoverable, and
+    task-relevant.
 4.  Experienced developers often have lower CRC rather than simply more
     knowledge.
-5.  Large organizations frequently fail because context becomes too
-    expensive to manage.
+5.  Large organizations may slow down or miscoordinate when context becomes
+    too expensive to manage.
 6.  Many software engineering practices can be interpreted as strategies
     to reduce context costs.
 
