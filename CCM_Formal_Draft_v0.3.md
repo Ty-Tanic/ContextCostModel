@@ -2,16 +2,16 @@
 
 ## Variables
 
-  Symbol     Meaning
-  ---------- ------------------------------------------------------
-  HCC        Human Context Capability
-  CRC        Context Reconstruction Cost
-  CMC        Context Maintenance Cost
-  CSC        Context Switching Cost
-  ACC(a,p)   Artifact Context Cost of artifact *a* for person *p*
-  C(T)       Context required for task *T*
-  O(T1,T2)   Context overlap between two tasks
-  AI         AI assistance factor
+| Symbol | Meaning |
+| --- | --- |
+| HCC | Human Context Capability |
+| CRC | Context Reconstruction Cost |
+| CMC | Context Maintenance Cost |
+| CSC | Context Switching Cost |
+| ACC(a,p) | Artifact Context Cost of artifact *a* for person *p* |
+| C(T) | Context required for task *T* |
+| O(T1,T2) | Context overlap between two tasks |
+| AI | AI assistance factor |
 
 ------------------------------------------------------------------------
 
