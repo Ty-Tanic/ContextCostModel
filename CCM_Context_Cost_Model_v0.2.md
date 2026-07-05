@@ -158,3 +158,19 @@ Potential extensions:
 CCM attempts to provide a unified explanation for many established
 software engineering principles by treating **context** as the primary
 optimization variable rather than code volume or complexity alone.
+
+------------------------------------------------------------------------
+
+# Personal Origin
+
+CCM was derived from observing a personal workflow pattern: for some
+workers, the limiting factor is not execution speed, but **Context
+Reconstruction Cost**.
+
+Once the relevant context is reconstructed, implementation may be
+comparatively fast. The dominant cost is often recovering the artifacts,
+constraints, prior decisions, and mental model required to act correctly.
+
+This makes context cost person-dependent. The same task can have very
+different cost depending on prior exposure, notes, tooling, fatigue,
+interruptions, and available externalized context.
