@@ -11,6 +11,9 @@
 | ACC(a,p) | Artifact Context Cost of artifact *a* for person *p* |
 | C(T) | Context required for task *T* |
 | O(T1,T2) | Context overlap between two tasks |
+| IC(T) | Integration context cost between artifacts required for task *T* |
+| E(T,p) | Externalized context available to person *p* for task *T* |
+| V_AI(T,p) | AI verification and supervision cost for task *T* by person *p* |
 | AI | AI assistance factor |
 
 ------------------------------------------------------------------------
@@ -28,8 +31,10 @@ $$
 For a task requiring artifacts $A$:
 
 $$
-CRC(T,p)=\sum_{a\in A} ACC(a,p)
+CRC(T,p)=\sum_{a\in A} ACC(a,p) - O(A) + IC(T)
 $$
+
+where $O(A)$ is reusable context overlap among required artifacts.
 
 Generalized:
 
@@ -41,20 +46,20 @@ $$
 
 ## Human Feasibility
 
-A task is completely representable only if
+A task is directly manageable with available externalized context only if
 
 $$
-C(T) \le HCC
+C(T) \le HCC + E(T,p)
 $$
 
 Otherwise
 
 $$
-C(T) > HCC
+C(T) > HCC + E(T,p)
 $$
 
-implies that the required context exceeds simultaneous human processing
-capability.
+implies that the required context exceeds the person's simultaneous
+processing capability plus available externalized context.
 
 ------------------------------------------------------------------------
 
@@ -63,13 +68,13 @@ capability.
 Effective capability:
 
 $$
-HCC_{eff}=HCC+\Delta_{AI}
+HCC_{eff}=HCC+E_{AI}(T,p)
 $$
 
 Alternative:
 
 $$
-CRC_{AI}=CRC\cdot(1-\alpha)
+CRC_{AI}=CRC\cdot(1-\alpha)+V_{AI}(T,p)
 $$
 
 where
@@ -77,6 +82,9 @@ where
 $$
 0\le\alpha\le1
 $$
+
+$E_{AI}$ represents AI-provided externalized context, not a literal
+increase in human working memory.
 
 ------------------------------------------------------------------------
 
@@ -96,10 +104,11 @@ where:
 ## Context Maintenance
 
 $$
-CMC=\gamma\cdot C(T)
+CMC=\gamma\cdot C(T)+\delta\cdot \max(0,C(T)-HCC-E(T,p))
 $$
 
-where $\gamma$ models cognitive maintenance effort.
+where $\gamma$ models baseline cognitive maintenance effort and $\delta$
+models overload cost when required context exceeds available capability.
 
 ------------------------------------------------------------------------
 
@@ -117,7 +126,7 @@ $$
 ## Architectural Quality
 
 $$
-Architecture\ Quality \propto
+Context\ Managing\ Architectural\ Quality \propto
 \frac{1}{Expected\ Context\ Cost}
 $$
 
@@ -137,7 +146,7 @@ $$
 
 ## Central Thesis
 
-Most software engineering techniques---including modularization,
+Many software engineering techniques---including modularization,
 abstraction, documentation, bounded contexts, APIs, and AI
 assistance---can be interpreted as mechanisms for minimizing total
 context cost.
