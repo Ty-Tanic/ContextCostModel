@@ -1,6 +1,6 @@
 # Context Cost Model (CCM) --- Formal Draft v0.3
 
-# Variables
+## Variables
 
   Symbol     Meaning
   ---------- ------------------------------------------------------
@@ -15,94 +15,115 @@
 
 ------------------------------------------------------------------------
 
-# Total Context Cost
+## Total Context Cost
 
-\[ TCC = CRC + CMC + CSC \]
+$$
+TCC = CRC + CMC + CSC
+$$
 
 ------------------------------------------------------------------------
 
-# Context Reconstruction
+## Context Reconstruction
 
-For a task requiring artifacts A:
+For a task requiring artifacts $A$:
 
-\[ CRC(T,p)=`\sum`{=tex}\_{a`\in `{=tex}A} ACC(a,p) \]
+$$
+CRC(T,p)=\sum_{a\in A} ACC(a,p)
+$$
 
 Generalized:
 
-\[ CRC=f(documentation, architecture, experience, tooling, AI) \]
+$$
+CRC=f(documentation, architecture, experience, tooling, AI)
+$$
 
 ------------------------------------------------------------------------
 
-# Human Feasibility
+## Human Feasibility
 
 A task is completely representable only if
 
-\[ C(T)`\le `{=tex}HCC \]
+$$
+C(T) \le HCC
+$$
 
 Otherwise
 
-\[ C(T)\>HCC \]
+$$
+C(T) > HCC
+$$
 
 implies that the required context exceeds simultaneous human processing
 capability.
 
 ------------------------------------------------------------------------
 
-# AI Assistance
+## AI Assistance
 
 Effective capability:
 
-\[ HCC\_{eff}=HCC+`\Delta`{=tex}\_{AI} \]
+$$
+HCC_{eff}=HCC+\Delta_{AI}
+$$
 
-Alternative formulation:
+Alternative:
 
-\[ CRC\_{AI}=CRC`\cdot`{=tex}(1-`\alpha`{=tex}) \]
-
-where
-
-\[ 0`\le`{=tex}`\alpha`{=tex}`\le1`{=tex} \]
-
-------------------------------------------------------------------------
-
-# Context Switching
-
-\[ CSC(T_1,T_2)=
-`\beta`{=tex}`\left`{=tex}(C(T_1)+C(T_2)-O(T_1,T_2)`\right`{=tex}) \]
+$$
+CRC_{AI}=CRC\cdot(1-\alpha)
+$$
 
 where
 
--   β = switching penalty
--   O = reusable context overlap
+$$
+0\le\alpha\le1
+$$
 
 ------------------------------------------------------------------------
 
-# Context Maintenance
+## Context Switching
 
-\[ CMC=`\gamma`{=tex}`\cdot `{=tex}C(T) \]
+$$
+CSC(T_1,T_2)=\beta\left(C(T_1)+C(T_2)-O(T_1,T_2)\right)
+$$
 
-where γ models cognitive maintenance effort.
+where:
+
+-   $\beta$ = switching penalty
+-   $O$ = reusable context overlap
 
 ------------------------------------------------------------------------
 
-# Productivity
+## Context Maintenance
+
+$$
+CMC=\gamma\cdot C(T)
+$$
+
+where $\gamma$ models cognitive maintenance effort.
+
+------------------------------------------------------------------------
+
+## Productivity
 
 Hypothesis:
 
-\[ Productivity `\propto`{=tex} `\frac{Delivered\ Value}`{=tex}
-{CRC+CMC+CSC} \]
+$$
+Productivity \propto
+\frac{Delivered\ Value}{CRC+CMC+CSC}
+$$
 
 ------------------------------------------------------------------------
 
-# Architectural Quality
+## Architectural Quality
 
-\[ Architecture Quality `\propto`{=tex} `\frac{1}`{=tex}
-{Expected Context Cost} \]
+$$
+Architecture\ Quality \propto
+\frac{1}{Expected\ Context\ Cost}
+$$
 
 ------------------------------------------------------------------------
 
-# Research Directions
-
-Potential future concepts:
+## Research Directions
 
 -   Context entropy
 -   Context compression
@@ -114,7 +135,7 @@ Potential future concepts:
 
 ------------------------------------------------------------------------
 
-# Central Thesis
+## Central Thesis
 
 Most software engineering techniques---including modularization,
 abstraction, documentation, bounded contexts, APIs, and AI
